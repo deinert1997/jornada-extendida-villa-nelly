@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="color-scheme" content="light">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Jornada Extendida · I.E.R. Villa Nelly</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --panal:#FBBF24; --panal-deep:#D97706; --hoja:#006B3F; --hoja-oscura:#005331;
+  --flor:#B91C1C; --papel:#FFFFFF; --tinta:#333333; --suave:#F3F4F6; --tinta-suave:#4B5563;
+  --crema:#FFFBEB; --hero-bg:#006B3F; --hero-ink:#FFFFFF; --card:#FFFFFF;
+  color-scheme:light; box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+
+
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 90px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--papel);color:var(--tinta);font-family:"Open Sans",system-ui,sans-serif;font-size:1.125rem;line-height:1.6}
+h1,h2,h3{font-family:Montserrat,system-ui,sans-serif;font-weight:800;line-height:1.1;margin:0}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--flor);outline-offset:3px}
+
+/* Navbar y portada */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--hoja-oscura);color:#fff}
+.top-in{max-width:1120px;margin:0 auto;padding:.6rem 1.25rem;display:flex;align-items:center;gap:1.5rem}
+.brand{display:flex;align-items:center;gap:.75rem;text-decoration:none;color:#fff;flex:none}
+.brand img{height:56px;width:auto;background:#fff;border-radius:12px;padding:3px}
+.brand span{font-family:Montserrat,system-ui,sans-serif;font-weight:800;line-height:1.1;font-size:1.1rem}
+.brand small{display:block;font-family:"Open Sans",system-ui,sans-serif;font-weight:600;font-size:.8rem;opacity:.85}
+.top ul{flex:1;margin:0;padding:0;list-style:none;display:flex;justify-content:center;gap:1.5rem;overflow-x:auto;white-space:nowrap}
+.top ul a{color:#fff;text-decoration:none;font-weight:600}
+.top ul a:hover{color:#FBBF24}
+.cta{flex:none;background:#FBBF24;color:#005331;font-weight:700;text-decoration:none;padding:.6rem 1.2rem;border-radius:10px}
+.cta:hover{background:#F59E0B}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--hoja-oscura);z-index:10}
+.hero{background:var(--hero-bg);color:var(--hero-ink);padding:clamp(2.5rem,6vw,5rem) 1.25rem clamp(3rem,7vw,5.5rem)}
+.hero-in{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:3rem;align-items:center}
+.pill{display:inline-block;border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.1);padding:.35rem 1rem;border-radius:999px;font-weight:600;font-size:.95rem;margin-bottom:1.25rem}
+.hero h1{font-size:clamp(2.4rem,5.6vw,4rem);line-height:1.08}
+.hero h1 em{font-style:normal;color:#FBBF24}
+.hero p{max-width:46ch;margin:1.25rem 0 2rem;font-size:1.15rem}
+.btns{display:flex;flex-wrap:wrap;gap:.8rem}
+.btn{display:inline-block;background:#FBBF24;color:#005331;text-decoration:none;font-weight:700;padding:.8rem 1.5rem;border-radius:10px}
+.btn:hover{background:#F59E0B}
+.btn.ghost{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.7)}
+.btn.ghost:hover{background:rgba(255,255,255,.15)}
+.foto{position:relative;margin:0 14px 14px 0}
+.foto::before{content:"";position:absolute;inset:14px -14px -14px 14px;background:#FBBF24;border-radius:28px}
+.foto img{position:relative;display:block;width:100%;height:auto;border-radius:28px}
+
+section{max-width:1040px;margin:0 auto;padding:clamp(2.5rem,6vw,4.5rem) 1.25rem}
+section h2{font-size:clamp(1.8rem,4vw,2.6rem);color:var(--hoja-oscura);margin-bottom:1.25rem}
+
+.lead{max-width:62ch}
+.datos{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1rem;margin-top:2rem}
+.dato{background:var(--card);border:1px solid var(--suave);border-left:8px solid var(--panal);padding:1rem 1.2rem}
+.dato b{display:block;font-family:Montserrat,system-ui,sans-serif;font-weight:800;font-size:1.35rem;color:var(--hoja)}
+.dato span{color:var(--tinta-suave);font-size:1rem}
+.areas{display:flex;flex-wrap:wrap;gap:.5rem;margin:1.5rem 0 0;padding:0;list-style:none}
+.areas li{border:2px solid var(--hoja);color:var(--hoja);padding:.15rem .9rem;border-radius:999px;font-weight:600;font-size:1rem}
+
+.pendiente{border:3px dashed var(--panal-deep);padding:2rem 1.5rem;background:var(--card);color:var(--tinta-suave)}
+.pendiente h3{font-size:1.3rem;color:var(--tinta);margin-bottom:.4rem}
+.videos{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:1.5rem;margin-top:1.5rem}
+.videos figure{margin:0;background:var(--card);border:1px solid var(--suave);border-top:6px solid var(--panal)}
+.yt{aspect-ratio:16/9;background:#000}
+.yt iframe{display:block;width:100%;height:100%;border:0}
+.videos figcaption{display:flex;justify-content:space-between;gap:1rem;padding:.8rem 1rem;font-size:1rem}
+.videos figcaption a{color:var(--flor);font-weight:700}
+.carousel{position:relative;border:4px solid var(--panal);background:var(--card)}
+.track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}
+.track::-webkit-scrollbar{display:none}
+.slide{flex:0 0 100%;scroll-snap-align:center;margin:0}
+.slide img,.slide video{display:block;width:100%;height:min(68vh,520px);object-fit:contain;background:#EFE9D5}
+.slide video{background:#000}
+.slide figcaption{padding:.7rem 1rem;font-weight:700;color:var(--hoja)}
+.cbtn{position:absolute;top:calc(min(68vh,520px)/2 - 24px);width:48px;height:48px;border-radius:50%;border:0;cursor:pointer;background:#FBBF24;color:#005331;font-size:1.6rem;font-weight:800;line-height:1;box-shadow:0 2px 8px rgba(0,0,0,.3)}
+.cbtn:hover{background:#F59E0B}.cprev{left:10px}.cnext{right:10px}
+.ccount{text-align:center;padding:.5rem;color:var(--tinta-suave);font-size:.95rem;border-top:1px solid var(--suave)}
+.sub{font-size:1.4rem;color:var(--tinta);margin:3rem 0 1rem}
+.pods{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:1.25rem;margin-top:1.5rem}
+.pod{background:var(--card);border:1px solid var(--suave);border-left:8px solid var(--panal);padding:1rem 1.2rem}
+.pod b{display:block;font-family:Montserrat,system-ui,sans-serif;font-size:1.15rem;color:var(--hoja);margin-bottom:.8rem}
+.pod audio{width:100%}
+.tabs{display:flex;flex-wrap:wrap;gap:.5rem;margin:1.5rem 0 1rem}
+.tabs button{font:inherit;font-weight:700;cursor:pointer;background:var(--card);color:var(--tinta);border:2px solid var(--hoja);border-radius:999px;padding:.4rem 1.1rem}
+.tabs button[aria-selected="true"]{background:var(--hoja);color:var(--papel)}
+.visor{border:4px solid var(--panal);background:var(--card)}
+.visor iframe{display:block;width:100%;height:min(78vh,680px);border:0}
+.abrir{margin:.8rem 0 0;font-size:1rem}
+.abrir a{color:var(--flor);font-weight:700}
+.alt{background:var(--crema)}
+.alt>div{max-width:1040px;margin:0 auto}
+footer{background:var(--hoja-oscura);color:#FFFCF0;text-align:center;padding:2rem 1.25rem}
+footer b{font-family:Montserrat,system-ui,sans-serif;font-weight:800;color:var(--panal);font-size:1.2rem}
+@media (max-width:860px){.hero-in{grid-template-columns:1fr;gap:2.5rem}.top-in{flex-wrap:wrap;gap:.4rem 1rem}.top ul{order:3;flex-basis:100%;justify-content:flex-start}.cta{display:none}.foto{max-width:520px}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<nav class="top" aria-label="Principal"><div class="top-in">
+  <a class="brand" href="#inicio"><img src="images/logo.png" alt="Escudo de la I.E.R. Villa Nelly"><span>Villa Nelly<small>Jornada Extendida</small></span></a>
+  <ul>
+    <li><a href="#proyecto">El proyecto</a></li>
+    <li><a href="#cartilla">Cartilla digital</a></li>
+    <li><a href="#evidencias">Evidencias</a></li>
+    <li><a href="#video">Edición de video</a></li>
+    <li><a href="#podcast">Podcast</a></li>
+  </ul>
+  <a class="cta" href="#cartilla">Ver cartillas</a>
+</div></nav>
+<header class="hero" id="inicio">
+  <div class="hero-in">
+    <div>
+      <span class="pill">I.E.R. Villa Nelly · Vereda El Encanto, Carepa</span>
+      <h1>Jornada <em>Extendida</em></h1>
+      <p>Cartillas digitales, videos y podcast creados por los estudiantes de grados 8 y 9 de la Institución Educativa Rural Villa Nelly.</p>
+      <div class="btns"><a class="btn" href="#proyecto">Conocer el proyecto</a><a class="btn ghost" href="#video">Ver los videos</a></div>
+    </div>
+    <figure class="foto"><img src="images/hero.jpg" alt="Grupo de estudiantes de la I.E.R. Villa Nelly en el aula de informática"></figure>
+  </div>
+</header>
+
+<main>
+<section id="proyecto">
+  <h2>Sobre el proyecto</h2>
+  <p class="lead">La Jornada Extendida es un programa de la Gobernación de Antioquia y la Universidad Católica de Oriente. Busca fortalecer el aprendizaje de los estudiantes con experiencias creativas, investigativas y prácticas en tecnología, arte, deporte, inglés y comunicaciones.</p>
+  <p class="lead">Más que clases tradicionales, el programa impulsa proyectos donde los estudiantes aprenden haciendo, investigando y resolviendo situaciones de su entorno.</p>
+  <ul class="areas" aria-label="Áreas del programa">
+    <li>Tecnología</li><li>Arte</li><li>Deporte</li><li>Inglés</li><li>Comunicaciones</li>
+  </ul>
+  <div class="datos">
+    <div class="dato"><b>Vereda El Encanto</b><span>Carepa, Antioquia</span></div>
+    <div class="dato"><b>Grados 8 y 9</b><span>Estudiantes participantes</span></div>
+    <div class="dato"><b>Cerca de 20</b><span>Estudiantes en el proceso</span></div>
+    <div class="dato"><b>Desde mayo de 2026</b><span>Inicio del proyecto</span></div>
+    <div class="dato"><b>Deinner Palomeque Torres</b><span>Tutor acompañante durante todo el proceso</span></div>
+    <div class="dato"><b>Gobernación de Antioquia</b><span>con la Universidad Católica de Oriente</span></div>
+  </div>
+</section>
+
+<div class="alt"><div><section id="cartilla">
+  <h2>Cartilla digital</h2>
+  <p class="lead">Como parte del proyecto, los estudiantes desarrollaron una cartilla digital en la que recopilaron fotografías, textos, experiencias y aprendizajes de su entorno escolar. Con ella resaltan lo bonito que tiene el colegio Villa Nelly.</p>
+  <div class="tabs" role="tablist" aria-label="Cartillas" id="tabs"></div>
+  <div class="visor"><iframe id="visor" title="Cartilla digital" loading="lazy" allowfullscreen allow="fullscreen"></iframe></div>
+  <p class="abrir"><a id="abrir" target="_blank" rel="noopener">Abrir esta cartilla en una pestaña nueva</a></p>
+  <h3 class="sub" id="evidencias">Evidencias de la realización de la cartilla digital</h3>
+  <p class="lead">Así trabajaron los estudiantes: tomaron fotografías, diseñaron las plantillas y armaron la cartilla en el computador.</p>
+  <div class="carousel" style="margin-top:1.25rem" aria-roledescription="carrusel" aria-label="Evidencias de la cartilla digital"><div class="track"><figure class="slide"><img src="images/cartilla/foto-01.jpg" alt="Estudiantes de la I.E.R. Villa Nelly trabajando en la cartilla digital" loading="lazy"></figure><figure class="slide"><img src="images/cartilla/foto-02.jpg" alt="Estudiantes de la I.E.R. Villa Nelly trabajando en la cartilla digital" loading="lazy"></figure><figure class="slide"><img src="images/cartilla/foto-03.jpg" alt="Estudiantes de la I.E.R. Villa Nelly trabajando en la cartilla digital" loading="lazy"></figure><figure class="slide"><img src="images/cartilla/foto-04.jpg" alt="Estudiantes de la I.E.R. Villa Nelly trabajando en la cartilla digital" loading="lazy"></figure><figure class="slide"><img src="images/cartilla/foto-05.jpg" alt="Estudiantes de la I.E.R. Villa Nelly trabajando en la cartilla digital" loading="lazy"></figure><figure class="slide"><img src="images/cartilla/foto-06.jpg" alt="Estudiantes de la I.E.R. Villa Nelly trabajando en la cartilla digital" loading="lazy"></figure><figure class="slide"><img src="images/cartilla/foto-07.jpg" alt="Estudiantes de la I.E.R. Villa Nelly trabajando en la cartilla digital" loading="lazy"></figure><figure class="slide"><img src="images/cartilla/foto-08.jpg" alt="Estudiantes de la I.E.R. Villa Nelly trabajando en la cartilla digital" loading="lazy"></figure><figure class="slide"><img src="images/cartilla/foto-09.jpg" alt="Estudiantes de la I.E.R. Villa Nelly trabajando en la cartilla digital" loading="lazy"></figure><figure class="slide"><img src="images/cartilla/foto-10.jpg" alt="Estudiantes de la I.E.R. Villa Nelly trabajando en la cartilla digital" loading="lazy"></figure><figure class="slide"><img src="images/cartilla/foto-11.jpg" alt="Estudiantes de la I.E.R. Villa Nelly trabajando en la cartilla digital" loading="lazy"></figure><figure class="slide"><img src="images/cartilla/foto-12.jpg" alt="Estudiantes de la I.E.R. Villa Nelly trabajando en la cartilla digital" loading="lazy"></figure><figure class="slide"><img src="images/cartilla/foto-13.jpg" alt="Estudiantes de la I.E.R. Villa Nelly trabajando en la cartilla digital" loading="lazy"></figure><figure class="slide"><img src="images/cartilla/foto-14.jpg" alt="Estudiantes de la I.E.R. Villa Nelly trabajando en la cartilla digital" loading="lazy"></figure></div><button class="cbtn cprev" aria-label="Anterior">‹</button><button class="cbtn cnext" aria-label="Siguiente">›</button><div class="ccount"></div></div>
+
+</section></div></div>
+
+<section id="video">
+  <h2>Edición de video</h2>
+  <p class="lead">Videos creados y editados por los estudiantes sobre temas de convivencia y cuidado del entorno.</p>
+  <div class="carousel" style="margin-top:1.25rem" aria-roledescription="carrusel" aria-label="Videos de los estudiantes"><div class="track"><figure class="slide"><video controls preload="metadata" playsinline src="videos/video-1.mp4"></video><figcaption>El irrespeto hacia los profesores</figcaption></figure><figure class="slide"><video controls preload="metadata" playsinline src="videos/video-2.mp4"></video><figcaption>¿Por qué arrojamos basuras al piso?</figcaption></figure><figure class="slide"><video controls preload="metadata" playsinline src="videos/video-3.mp4"></video><figcaption>Cuidar el medio ambiente</figcaption></figure></div><button class="cbtn cprev" aria-label="Anterior">‹</button><button class="cbtn cnext" aria-label="Siguiente">›</button><div class="ccount"></div></div>
+
+  <h3 class="sub">Evidencias de la creación del video</h3>
+  <p class="lead">Los estudiantes grabaron las escenas en el colegio y luego editaron los videos en el computador.</p>
+  <div class="carousel" style="margin-top:1.25rem" aria-roledescription="carrusel" aria-label="Evidencias de la creación del video"><div class="track"><figure class="slide"><img src="images/video/foto-01.jpg" alt="Estudiantes de la I.E.R. Villa Nelly grabando y editando los videos" loading="lazy"></figure><figure class="slide"><img src="images/video/foto-02.jpg" alt="Estudiantes de la I.E.R. Villa Nelly grabando y editando los videos" loading="lazy"></figure><figure class="slide"><img src="images/video/foto-03.jpg" alt="Estudiantes de la I.E.R. Villa Nelly grabando y editando los videos" loading="lazy"></figure><figure class="slide"><img src="images/video/foto-04.jpg" alt="Estudiantes de la I.E.R. Villa Nelly grabando y editando los videos" loading="lazy"></figure><figure class="slide"><img src="images/video/foto-05.jpg" alt="Estudiantes de la I.E.R. Villa Nelly grabando y editando los videos" loading="lazy"></figure><figure class="slide"><img src="images/video/foto-06.jpg" alt="Estudiantes de la I.E.R. Villa Nelly grabando y editando los videos" loading="lazy"></figure><figure class="slide"><img src="images/video/foto-07.jpg" alt="Estudiantes de la I.E.R. Villa Nelly grabando y editando los videos" loading="lazy"></figure><figure class="slide"><img src="images/video/foto-08.jpg" alt="Estudiantes de la I.E.R. Villa Nelly grabando y editando los videos" loading="lazy"></figure><figure class="slide"><img src="images/video/foto-09.jpg" alt="Estudiantes de la I.E.R. Villa Nelly grabando y editando los videos" loading="lazy"></figure><figure class="slide"><img src="images/video/foto-10.jpg" alt="Estudiantes de la I.E.R. Villa Nelly grabando y editando los videos" loading="lazy"></figure><figure class="slide"><img src="images/video/foto-11.jpg" alt="Estudiantes de la I.E.R. Villa Nelly grabando y editando los videos" loading="lazy"></figure><figure class="slide"><img src="images/video/foto-12.jpg" alt="Estudiantes de la I.E.R. Villa Nelly grabando y editando los videos" loading="lazy"></figure><figure class="slide"><img src="images/video/foto-13.jpg" alt="Estudiantes de la I.E.R. Villa Nelly grabando y editando los videos" loading="lazy"></figure><figure class="slide"><img src="images/video/foto-14.jpg" alt="Estudiantes de la I.E.R. Villa Nelly grabando y editando los videos" loading="lazy"></figure><figure class="slide"><img src="images/video/foto-15.jpg" alt="Estudiantes de la I.E.R. Villa Nelly grabando y editando los videos" loading="lazy"></figure><figure class="slide"><img src="images/video/foto-16.jpg" alt="Estudiantes de la I.E.R. Villa Nelly grabando y editando los videos" loading="lazy"></figure><figure class="slide"><img src="images/video/foto-17.jpg" alt="Estudiantes de la I.E.R. Villa Nelly grabando y editando los videos" loading="lazy"></figure></div><button class="cbtn cprev" aria-label="Anterior">‹</button><button class="cbtn cnext" aria-label="Siguiente">›</button><div class="ccount"></div></div>
+</section>
+
+<div class="alt"><div><section id="podcast">
+  <h2>Podcast</h2>
+  <p class="lead">Los estudiantes escribieron, grabaron y publicaron estos episodios sobre la convivencia y el cuidado del colegio.</p>
+  <div class="pods"><div class="pod"><b>Convivencia escolar</b><audio controls preload="metadata" src="audios/convivencia-escolar.mp3"></audio></div><div class="pod"><b>Irrespeto hacia los profesores</b><audio controls preload="metadata" src="audios/irrespeto-hacia-los-profesores.mp3"></audio></div><div class="pod"><b>No arrojar basuras</b><audio controls preload="metadata" src="audios/no-arrojar-basuras.mp3"></audio></div></div>
+  <h3 class="sub">Evidencias de la creación del podcast</h3>
+  <p class="lead">Los estudiantes conocieron las herramientas, escribieron el guion, grabaron las voces con el celular y el micrófono, y editaron los episodios.</p>
+  <div class="carousel" style="margin-top:1.25rem" aria-roledescription="carrusel" aria-label="Evidencias de la creación del podcast"><div class="track"><figure class="slide"><img src="images/podcast/foto-01.jpg" alt="Estudiantes de la I.E.R. Villa Nelly creando el podcast" loading="lazy"></figure><figure class="slide"><img src="images/podcast/foto-02.jpg" alt="Estudiantes de la I.E.R. Villa Nelly creando el podcast" loading="lazy"></figure><figure class="slide"><img src="images/podcast/foto-03.jpg" alt="Estudiantes de la I.E.R. Villa Nelly creando el podcast" loading="lazy"></figure><figure class="slide"><img src="images/podcast/foto-04.jpg" alt="Estudiantes de la I.E.R. Villa Nelly creando el podcast" loading="lazy"></figure><figure class="slide"><img src="images/podcast/foto-05.jpg" alt="Estudiantes de la I.E.R. Villa Nelly creando el podcast" loading="lazy"></figure><figure class="slide"><img src="images/podcast/foto-06.jpg" alt="Estudiantes de la I.E.R. Villa Nelly creando el podcast" loading="lazy"></figure><figure class="slide"><img src="images/podcast/foto-07.jpg" alt="Estudiantes de la I.E.R. Villa Nelly creando el podcast" loading="lazy"></figure><figure class="slide"><img src="images/podcast/foto-08.jpg" alt="Estudiantes de la I.E.R. Villa Nelly creando el podcast" loading="lazy"></figure></div><button class="cbtn cprev" aria-label="Anterior">‹</button><button class="cbtn cnext" aria-label="Siguiente">›</button><div class="ccount"></div></div>
+
+</section></div></div>
+</main>
+
+<footer><b>I.E.R. Villa Nelly</b><br>Cultura · Saber · Trabajo</footer>
+<script>
+var cartillas=[
+{t:"Cartilla 1",u:"https://heyzine.com/flip-book/e64cc9a8af.html"},
+{t:"Cartilla 2",u:"https://heyzine.com/flip-book/6101838968.html"},
+{t:"Cartilla 3",u:"https://heyzine.com/flip-book/b4f2a7e41f.html"},
+{t:"Cartilla 4",u:"https://heyzine.com/flip-book/b19606e759.html"},
+{t:"Cartilla 5",u:"https://heyzine.com/flip-book/21286a81e9.html"}
+];
+(function(){
+var bar=document.getElementById('tabs'),f=document.getElementById('visor'),a=document.getElementById('abrir');
+function pick(i){
+  f.src=cartillas[i].u;a.href=cartillas[i].u;
+  [].forEach.call(bar.children,function(b,j){b.setAttribute('aria-selected',j===i?'true':'false')});
+}
+cartillas.forEach(function(c,i){
+  var b=document.createElement('button');b.type='button';b.setAttribute('role','tab');b.textContent=c.t;
+  b.onclick=function(){pick(i)};bar.appendChild(b);
+});
+pick(0);
+})();
+</script>
+<script>
+document.querySelectorAll('.carousel').forEach(function(c){
+  var tr=c.querySelector('.track'),n=tr.children.length,ct=c.querySelector('.ccount');
+  function cur(){return Math.round(tr.scrollLeft/tr.clientWidth)}
+  function upd(){ct.textContent=(cur()+1)+' de '+n;}
+  function go(i){tr.scrollTo({left:Math.max(0,Math.min(n-1,i))*tr.clientWidth,behavior:'smooth'});}
+  c.querySelector('.cprev').onclick=function(){go(cur()-1)};
+  c.querySelector('.cnext').onclick=function(){go(cur()+1)};
+  tr.addEventListener('scroll',function(){upd();c.querySelectorAll('video').forEach(function(v){v.pause()})});
+  upd();
+});
+</script>
+</body>
+</html>
